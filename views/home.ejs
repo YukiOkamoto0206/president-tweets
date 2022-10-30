@@ -1,0 +1,79 @@
+<%- include("components/header.ejs") %>
+<h1>President 44th ~ 46th Tweets</h1>
+
+<form action="/obama" class="w-75 mb-3 mx-auto">
+  <input name="presidentId" value="<%= obama_data[0].id %>" type="hidden" />
+  <input
+    name="obamaPicUrl"
+    value="<%= obama_data[0].profile_image_url %>"
+    type="hidden"
+  />
+  <input name="obamaName" value="<%= obama_data[0].name %>" type="hidden" />
+  <button class="border-0 bg-light p-2 rounded">
+    <div class="border-0 bg-light p-2 rounded d-flex align-items-center mb-2">
+      <img
+        src="<%= obama_data[0].profile_image_url %>"
+        width="50"
+        height="50"
+        class="rounded-circle me-2"
+      />
+      <div>
+        <strong><%= obama_data[0].name %></strong>
+        <div class="fw-lighter username">@<%= obama_data[0].username %></div>
+      </div>
+    </div>
+    <div class="description"><%= obama_data[0].description %></div>
+  </button>
+</form>
+
+<form action="/trump" class="w-75 mb-3 mx-auto">
+  <input name="presidentId" value="<%= trump_data[0].id %>" type="hidden" />
+  <input
+    name="trumpPicUrl"
+    value="<%= trump_data[0].profile_image_url %>"
+    type="hidden"
+  />
+  <input name="trumpName" value="<%= trump_data[0].name %>" type="hidden" />
+  <button class="border-0 bg-light p-2 rounded">
+    <div class="border-0 bg-light p-2 rounded d-flex align-items-center mb-2">
+      <img
+        src="<%= trump_data[0].profile_image_url %>"
+        width="50"
+        height="50"
+        class="rounded-circle me-2"
+      />
+      <div>
+        <strong><%= trump_data[0].name %></strong>
+        <div class="fw-lighter username">@<%= trump_data[0].username %></div>
+      </div>
+    </div>
+    <div class="description"><%= trump_data[0].description %></div>
+  </button>
+</form>
+
+<form action="/biden" class="w-75 mb-3 mx-auto">
+  <input name="presidentId" value="<%= biden_data[0].id %>" type="hidden" />
+  <input
+    name="bidenPicUrl"
+    value="<%= biden_data[0].profile_image_url %>"
+    type="hidden"
+  />
+  <input name="bidenName" value="<%= biden_data[0].name %>" type="hidden" />
+  <button class="border-0 bg-light p-2 rounded">
+    <div class="border-0 bg-light p-2 rounded d-flex align-items-center mb-2">
+      <img
+        src="<%= biden_data[0].profile_image_url %>"
+        width="50"
+        height="50"
+        class="rounded-circle me-2"
+      />
+      <div>
+        <strong><%= biden_data[0].name %></strong>
+        <div class="fw-lighter username">@<%= biden_data[0].username %></div>
+      </div>
+    </div>
+    <div class="description"><%= biden_data[0].description %></div>
+  </button>
+</form>
+
+<%- include("components/footer.ejs") %>

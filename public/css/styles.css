@@ -1,0 +1,34 @@
+a {
+  color: black;
+}
+a:link {
+  text-decoration: none;
+}
+a:hover {
+  text-decoration: none;
+}
+
+.username {
+  font-size: 10px;
+  width: fit-content;
+}
+
+.description {
+  font-size: 14px;
+  width: fit-content;
+}
+
+h1 {
+  text-align: center;
+  margin: 30px 0;
+}
+
+.gap {
+  column-gap: 3px;
+}
+
+.actionNumber {
+  color: gray;
+  font-weight: 300;
+  font-size: 12px;
+}

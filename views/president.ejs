@@ -1,0 +1,62 @@
+<%- include("components/header.ejs") %> <% if (data.length == 0) { %>
+<h1>The Tweets Were All Deleted.</h1>
+<% } else {%>
+
+<form action="/presidentDetail" class="text-center">
+  <input name="userId" value="<%= presidentId %>" type="hidden" />
+  <input name="picUrl" value="<%= picUrl %>" type="hidden" />
+  <input name="name" value="<%= name %>" type="hidden" />
+  <div class="d-flex text-center align-items-center justify-content-center">
+    <div>Tweet Counts (5 to 100):</div>
+    <input type="number" name="tweetsNumber" value="5" min="5" max="100" />
+  </div>
+
+  <div class="d-flex text-center align-items-center justify-content-center gap">
+    <div>Order by Likes:</div>
+    <div class="d-flex">
+      <input type="radio" name="sortLikes" value="none" id="none" />
+      <label for="none">None</label>
+    </div>
+    <div class="d-flex">
+      <input type="radio" name="sortLikes" value="ascending" id="ascending" />
+      <label for="ascending">Ascending</label>
+    </div>
+    <div class="d-flex">
+      <input type="radio" name="sortLikes" value="descending" id="descending" />
+      <label for="descending">Descending</label>
+    </div>
+  </div>
+
+  <button class="btn btn-outline-primary">Search</button>
+</form>
+
+<% for (i = 0; i < data.length; i++) { %>
+<div class="w-75 bg-light p-2 rounded mb-3 mx-auto">
+  <div class="d-flex align-items-center mb-2">
+    <img
+      src="<%= picUrl %>"
+      width="50"
+      height="50"
+      class="rounded-circle me-2"
+    />
+    <strong><%= name %></strong>
+  </div>
+  <div class="text"><%= data[i].text %></div>
+  <div class="d-flex justify-content-evenly mt-2">
+    <div class="d-flex align-items-center gap">
+      <img src="/image/reply.png" width="15" height="15" />
+      <div class="actionNumber"><%= data[i].public_metrics.reply_count %></div>
+    </div>
+    <div class="d-flex align-items-center gap">
+      <img src="/image/retweet.png" width="15" height="15" />
+      <div class="actionNumber">
+        <%= data[i].public_metrics.retweet_count %>
+      </div>
+    </div>
+    <div class="d-flex align-items-center gap">
+      <img src="/image/like.png" width="15" height="15" />
+      <div class="actionNumber"><%= data[i].public_metrics.like_count %></div>
+    </div>
+  </div>
+</div>
+<% } %> <% } %> <%- include("components/footer.ejs") %>
